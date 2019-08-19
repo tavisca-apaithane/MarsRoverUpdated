@@ -34,7 +34,7 @@ pipeline {
         {
             steps {
                 sh script: '''
-                    echo "I am Building DockerImage ="
+                    docker build -t rmars -f .infra/docker/Dockerfile .
                 ''',
             label: "Building Docker Image"
             }
@@ -43,7 +43,9 @@ pipeline {
         {
             steps {
                 sh script: '''
-                    echo "I am Pubishing DockerImage ="
+                    docker login -u abhi870 -p dockerhubpass docker.io
+                    docker tag abhi870/marsrover rmars
+                    docker push abhi870/marsrover
                 ''',
             label: "Publishing Docker Image"
             }

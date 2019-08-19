@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh script: '''
                     docker login -u abhi870 -p dockerhubpass docker.io
-                    docker tag abhi870/marsrover rmars
+                    docker tag rmars abhi870/marsrover
                     docker push abhi870/marsrover
                 ''',
             label: "Publishing Docker Image"

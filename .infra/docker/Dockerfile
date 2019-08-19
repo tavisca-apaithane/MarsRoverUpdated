@@ -1,5 +1,5 @@
 #TODO
 From java:8
-COPY build/libs /var/www/java/
+COPY out/artifact/mars_jar/mars.jar /var/www/java/
 WORKDIR /var/www/java
 CMD ["java","-jar","MarsRover.jar"]
